@@ -7,5 +7,10 @@
         ]
       }
     }
+  },
+  "projects": {
+    "dev": "twitter-project-51167",
+    "prod": "twitter-project-51167",
+    "default": "twitter-project-51167"
   }
 }
