@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "twitter-project-51167": {
+      "hosting": {
+        "twitter-project": [
+          "twitter-project-51167"
+        ]
+      }
+    }
+  }
+}
