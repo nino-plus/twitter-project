@@ -11,9 +11,7 @@ import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,8 +21,7 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireFunctionsModule,
   ],
-  providers: [
-    { provide: REGION, useValue: 'asia-northeast1' }],
-  bootstrap: [AppComponent]
+  providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
