@@ -30,17 +30,20 @@ export class AuthService {
     const twitterProfile = additionalUserInfo.profile as any;
     this.userService
       .getUserData(user.uid)
-      // .pipe(take(1))
+      .pipe()
       .toPromise()
       .then((userDoc) => {
-        this.userService
-          .createUser(user.uid, twitterProfile)
-          .then(() => {
-            this.succeededLogin();
-          })
-          .catch((error) => {
-            this.failedLogin(error);
-          });
+        console.log(userDoc);
+        if (!userDoc) {
+          this.userService
+            .createUser(user.uid, twitterProfile)
+            .then(() => {
+              this.succeededLogin();
+            })
+            .catch((error) => {
+              this.failedLogin(error);
+            });
+        }
       });
   }
 
