@@ -1,0 +1,29 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row class="header__inner">
+    <h1 class="header__logo">
+      <a routerLink="/">
+        Twitter Project
+      </a>
+    </h1>
+    <div class="header__actions">
+      <ng-template #default>
+        <button mat-raised-button color="primary" (click)="login()" [disabled]="authService.loginProcessing">{{authService.loginProcessing ? 'ログイン中' : 'Twitterでログイン'}}</button>
+      </ng-template>
+      <ng-container *ngIf="user$ | async as user; else default">
+        <button
+          mat-mini-fab
+          color="primary"
+          [matMenuTriggerFor]="userMenu"
+          [style.background-image]="'url(' + user.photoURL + ')'"
+          class="header__icon"
+        ></button>
+        <mat-menu #userMenu="matMenu" class="header__menu">
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>ログアウト</span>
+          </button>
+        </mat-menu>
+      </ng-container>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

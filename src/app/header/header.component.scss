@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header {
+  &__actions {
+    margin-left: auto;
+  }
+  &__icon {
+    background-color: transparent;
+    background-position: center;
+    background-size: cover;
+    box-shadow: none;
+  }
+}
