@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
+import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,24 +28,26 @@ export class AuthService {
     provider.setCustomParameters({ prompt: 'select_account' });
     const userCredential = await this.afAuth.signInWithPopup(provider);
     const { user, additionalUserInfo } = userCredential;
+    const { accessToken, secret } = userCredential.credential as any;
     const twitterProfile = additionalUserInfo.profile as any;
-    this.userService
+    return this.userService
       .getUserData(user.uid)
-      .pipe()
+      .pipe(take(1))
       .toPromise()
-      .then((userDoc) => {
-        console.log(userDoc);
-        if (!userDoc) {
-          this.userService
-            .createUser(user.uid, twitterProfile)
-            .then(() => {
-              this.succeededLogin();
-            })
-            .catch((error) => {
-              this.failedLogin(error);
-            });
-        }
-      });
+      .then(
+        userDoc => {
+          console.log(userDoc);
+          if (!userDoc) {
+              this.userService
+                .createUser(user.uid, twitterProfile, accessToken, secret)
+                .then(() => {
+                  this.succeededLogin();
+                })
+                .catch((error) => {
+                  this.failedLogin(error);
+                });
+            }
+          });
   }
 
   succeededLogin() {

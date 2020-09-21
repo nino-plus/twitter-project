@@ -16,13 +16,18 @@ export class UserService {
     return this.db.doc(`users/${uid}`).valueChanges();
   }
 
-  async createUser(uid: string, twitterProfile: any): Promise<void> {
+  async createUser(uid: string, twitterProfile: any, accessToken, secret): Promise<void> {
     const userData = {
       uid,
       userName: twitterProfile.name,
       avatarURL: twitterProfile.profile_image_url_https.replace('_normal', ''),
-      screenName: twitterProfile.screen_name,
     };
-    return await this.db.doc(`users/${uid}`).set(userData);
+    const tokenData = {
+      uid,
+      access_tolen_key: accessToken,
+      access_tolen_secret: secret,
+    };
+    await this.db.doc(`users/${uid}`).set(userData);
+    await this.db.doc(`private/${uid}`).set(tokenData);
   }
 }
