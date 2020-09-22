@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { firestore } from 'firebase';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Task } from '../interfaces/task';
 
 @Injectable({
@@ -30,19 +31,17 @@ export class TaskService {
     return formatDate.year + formatDate.month + formatDate.date;
   }
 
-  getTodayTask(uid: string) {
+  getTodayTask(uid: string): Observable<Task> {
     const today = this.formatToday();
     return this.db.doc(`users/${uid}/tasks/${today}`).valueChanges();
   }
 
-  createTask(uid: string, taskTitle: string): Promise<void> {
-    const taskId = this.db.createId();
-    const createDate = this.formatToday();
-    return this.db.doc(`users/${uid}/tasks/${createDate}`).set({
+  createTask(uid: string, taskTitle: string) {
+    const taskId = this.formatToday();
+    return this.db.doc(`users/${uid}/tasks/${taskId}`).set({
       id: taskId,
       title: taskTitle,
       isComplate: false,
-      createDate,
       createdAt: firestore.Timestamp.now(),
     });
   }

@@ -16,7 +16,7 @@ import { TaskService } from 'src/app/services/task.service';
 export class MypageComponent implements OnInit {
   limitTime = 24;
   formatToday = this.taskService.formatToday();
-  userTask$;
+  userTask$: Observable<Task>;
   taskTitleMaxLength = 20;
 
   form = this.fb.group({
@@ -45,8 +45,8 @@ export class MypageComponent implements OnInit {
       });
   }
 
-  getTodayTask(uid: string) {
-    this.userTask$ = this.taskService.getTodayTask(uid);
+  getTodayTask(uid: string): Observable<Task> {
+    return this.taskService.getTodayTask(uid);
   }
 
   creatTask(uid: string) {
@@ -55,8 +55,8 @@ export class MypageComponent implements OnInit {
     });
   }
 
-  complateTask(uid: string, createDate: string) {
-    this.taskService.complateTask(uid, createDate);
+  complateTask(uid: string, taskId: string) {
+    this.taskService.complateTask(uid, taskId);
     this.snackBar.open('お疲れ様でした 🎉');
   }
 }
