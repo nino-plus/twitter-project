@@ -1,32 +1,93 @@
+@import 'variables';
+@import 'mixins';
+
 .about {
   text-align: center;
-  margin-bottom: 80px;
+  padding: 56px 0;
+  &__inner {
+    @include lg {
+      display: flex;
+    }
+  }
+  &__main {
+    @include lg {
+      width: 44%;
+      text-align: left;
+      padding: 12px;
+    }
+  }
+  &__timing {
+    margin: 40px auto 0;
+    flex-direction: column;
+    @include lg {
+      margin: 0px;
+      width: 56%;
+    }
+  }
+  &__catch {
+    margin: 0px;
+    font-size: 24px;
+    font-weight: 700;
+    @include md {
+      font-size: 32px;
+    }
+  }
+  &__text {
+    margin: 12px 0 0;
+    line-height: 1.75;
+  }
+}
+
+.timing {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+    padding: 32px 12px;
+    background-color: $color-base-light;
+    border-radius: 8px;
+    width: calc(50% - 8px);
+    @include md {
+      width: calc(100% / 3 - 32px / 3);
+    }
+    @include sm {
+      flex-direction: column;
+    }
+    &:nth-of-type(even) {
+      margin-left: 16px;
+    }
+    &:last-of-type {
+      margin-top: 16px;
+      width: 100%;
+      @include md {
+        margin-top: 0;
+        width: calc(100% / 3 - 32px / 3);
+      }
+    }
+    &:not(:first-of-type) {
+      @include md {
+        margin-left: 16px;
+      }
+    }
+  }
   &__title {
     margin-top: 0px;
-    margin-bottom: 80px;
-    font-size: 36px;
+    font-weight: 700;
+    font-size: 14px;
   }
   &__text {
     margin-bottom: 16px;
+    color: #6c6c6c;
   }
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.about-card {
-  margin-left: 16px;
-  background-color: #f9f9f9;
-  padding: 32px, 16px;
-  &__title {
-    font-weight: bold;
-    font-size: 24px;
-    font-family: '' Hiragino Sans ',' Hiragino Kaku Gothic Pro ',meiryo,'
-      Helvetica Neue ',roboto,droid sans,arial,sans-serif';
-  }
-  &__text {
-    margin-bottom: 16px;
+  &__image {
+    width: 80%;
+    max-width: 140px;
+    margin: 24px auto 0;
+    @include md {
+      margin-top: 32px;
+      width: 80%;
+    }
   }
 }
-
