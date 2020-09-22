@@ -4,7 +4,13 @@
 .hero {
   padding: 56px 0;
   text-align: center;
-  background: linear-gradient(135deg, $color-main 0%, $color-main 75%, $color-main-dark 75%, $color-main-dark 100%);
+  background: linear-gradient(
+    135deg,
+    $color-main 0%,
+    $color-main 75%,
+    $color-main-dark 75%,
+    $color-main-dark 100%
+  );
   &__inner {
     @include lg {
       display: flex;
@@ -65,9 +71,9 @@
     padding: 32px 12px;
     border-radius: 8px;
     background-color: $color-base-light;
-    width: calc( 50% - 8px );
+    width: calc(50% - 8px);
     @include md {
-      width: calc( 100%/3 - 32px/3);
+      width: calc(100% / 3 - 32px / 3);
     }
     &:nth-of-type(even) {
       margin-left: 16px;
@@ -77,11 +83,11 @@
       width: 100%;
       @include md {
         margin-top: 0;
-        width: calc( 100%/3  - 32px/3);
+        width: calc(100% / 3 - 32px / 3);
       }
     }
     &:not(:first-of-type) {
-      @include md  {
+      @include md {
         margin-left: 16px;
       }
     }

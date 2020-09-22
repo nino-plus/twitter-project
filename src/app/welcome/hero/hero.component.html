@@ -2,12 +2,10 @@
   <div class="container">
     <div class="hero__inner">
       <div class="hero__main">
-        <p class="hero__catch">
-          今日の目標を達成しよう！
-        </p>
+        <p class="hero__catch">今日の目標を達成しよう！</p>
         <p class="hero__text">
-          {{ limitTime }}時の時点で完了報告がないと、<br>
-          過去のツイートがリツイートされます！<br>
+          {{ limitTime }}時の時点で完了報告がないと、<br />
+          過去のツイートがリツイートされます！<br />
           黒歴史ツイートが晒される前に完了しましょう！
         </p>
         <div class="hero__actions">
@@ -18,7 +16,9 @@
               [class.disabled]="authService.loginProcessing"
               class="btn hero__btn"
             >
-              {{ authService.loginProcessing ? 'ログイン中' : 'Twitterで始める' }}
+              {{
+                authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'
+              }}
             </button>
           </ng-template>
           <ng-container *ngIf="user$ | async as user; else default">
@@ -30,26 +30,26 @@
         <ul class="usage">
           <li class="usage__item">
             <div class="usage__head">STEP 01</div>
-            <p class="usage__title">今日の目標を<br>登録する。</p>
+            <p class="usage__title">今日の目標を<br />登録する。</p>
             <div class="usage__image">
-              <img src="/assets/images/step01.svg" alt="">
+              <img src="/assets/images/step01.svg" alt="" />
             </div>
           </li>
           <li class="usage__item">
             <div class="usage__head">STEP 02</div>
-            <p class="usage__title">目標を達成したら<br>完了報告する。</p>
+            <p class="usage__title">目標を達成したら<br />完了報告する。</p>
             <div class="usage__image">
-              <img src="/assets/images/step02.svg" alt="">
+              <img src="/assets/images/step02.svg" alt="" />
             </div>
           </li>
           <li class="usage__item">
             <div class="usage__head"><em>完了報告がない</em>と…</div>
-            <p class="usage__title">過去のツイートが<br>リツイートされます。</p>
-            <p class="usage__emoji">
-              😨
+            <p class="usage__title">
+              過去のツイートが<br />リツイートされます。
             </p>
+            <p class="usage__emoji">😨</p>
             <p class="usage__comment">
-              あの時のポエムツイートが<br>リツイートされてしまう！？
+              あの時のポエムツイートが<br />リツイートされてしまう！？
             </p>
           </li>
         </ul>
