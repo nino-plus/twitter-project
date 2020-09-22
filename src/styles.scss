@@ -1,6 +1,24 @@
+@import "variables";
+@import "mixins";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  color: $color-font;
+  font-family: Roboto, "Helvetica Neue", "Hiragino Sans","Hiragino Kaku Gothic Pro",meiryo,"Helvetica Neue",roboto,droid sans,arial,sans-serif;
+  padding-top: 56px;
+}
+
 .container {
   max-width: 1024px;
-  padding: 0 24px;
+  padding: 0 16px;
   margin: 0 auto;
-  box-sizing: border-box;
+  @include md {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
