@@ -12,10 +12,7 @@ import { environment } from 'src/environments/environment';
 import { MainShellComponent } from './main-shell/main-shell.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainShellComponent
-  ],
+  declarations: [AppComponent, MainShellComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

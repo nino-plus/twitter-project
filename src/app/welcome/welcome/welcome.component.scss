@@ -1,6 +1,6 @@
 .welcome {
   display: flex;
-  background-color: #EEFFFF;
+  background-color: #eeffff;
   margin-bottom: 40px;
   &__top {
     text-align: center;
@@ -17,7 +17,6 @@
 .sign-up {
   margin-right: 16px;
 }
-
 
 .about {
   text-align: center;
@@ -39,7 +38,8 @@
   padding: 32px, 16px;
   &__title {
     font-size: 24px;
-    font-family: ""Hiragino Sans","Hiragino Kaku Gothic Pro",meiryo,"Helvetica Neue",roboto,droid sans,arial,sans-serif";
+    font-family: '' Hiragino Sans ',' Hiragino Kaku Gothic Pro ',meiryo,'
+      Helvetica Neue ',roboto,droid sans,arial,sans-serif';
   }
 }
 
@@ -59,7 +59,8 @@
     margin-top: 0px;
   }
   &__step-title {
-    font-family: "Hiragino Sans","Hiragino Kaku Gothic Pro",meiryo,"Helvetica Neue",roboto,droid sans,arial,sans-serif;
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', meiryo,
+      'Helvetica Neue', roboto, droid sans, arial, sans-serif;
     font-size: 18px;
     margin-bottom: 24px;
   }
@@ -81,6 +82,5 @@
     }
   }
 }
-
 
 // 普通のテキストは16px デカイのは32px 中くらいのは24px

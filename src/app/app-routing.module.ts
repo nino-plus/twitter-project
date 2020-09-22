@@ -11,7 +11,7 @@ const routes: Routes = [
     },
     loadChildren: () =>
       import('./welcome/welcome.module').then((m) => m.WelcomeModule),
-      // Guard挿入お願いします
+    // Guard挿入お願いします
   },
   // {
   //   path: '',
