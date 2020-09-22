@@ -12,7 +12,7 @@ import { take } from 'rxjs/operators';
 })
 export class AuthService {
   afUser$: Observable<User> = this.afAuth.user;
-  uid: string;
+  user: any;
   loginProcessing = false;
 
   constructor(
@@ -20,7 +20,11 @@ export class AuthService {
     private router: Router,
     private snackBar: MatSnackBar,
     private userService: UserService
-  ) { }
+  ) {
+    this.afUser$.subscribe(user => {
+      this.user = user && user;
+    });
+  }
 
   async login(): Promise<void> {
     this.loginProcessing = true;

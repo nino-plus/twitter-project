@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>今日の目標</h2>
+  <p>
+    この目標を{{limitTime}}時までに完了できなかった場合は、<br>
+    自分の過去ツイートが自動リツイートされます😱
+  </p>
+  <ng-container *ngIf="authService.afUser$ | async as user">
+    <p>{{ userTask.title }}</p>
+    <ng-container *ngIf="userTask.isComplate else unComplate">
+      <div>
+        <p>おめでとうございます！</p>
+        <p>自動リツイートは回避されました！</p>
+      </div>
+    </ng-container>
+    <ng-template #unComplate>
+      <button mat-raised-button color="primary" (click)="complateTask()">完了しました！</button>
+    </ng-template>
+    <div>
+      <button mat-raised-button color="primary" (click)="openCreateTaskDialog(user.uid)">タスクを登録する</button>
+    </div>
+  </ng-container>
+</div>
