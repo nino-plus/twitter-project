@@ -39,7 +39,7 @@ export class AuthService {
       .pipe(take(1))
       .toPromise()
       .then((userDoc) => {
-        console.log(userDoc);
+        this.router.navigateByUrl('/mypage');
         if (!userDoc) {
           this.userService
             .createUser(user.uid, twitterProfile, accessToken, secret)
@@ -54,7 +54,6 @@ export class AuthService {
   }
 
   succeededLogin() {
-    this.router.navigateByUrl('/');
     this.snackBar.open('ログインしました。', '閉じる');
     this.loginProcessing = false;
   }
