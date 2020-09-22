@@ -25,8 +25,7 @@ import { MainShellComponent } from './main-shell/main-shell.component';
     AngularFirestoreModule,
     AngularFireFunctionsModule,
   ],
-  providers: [
-    { provide: REGION, useValue: 'asia-northeast1' }],
-  bootstrap: [AppComponent]
+  providers: [{ provide: REGION, useValue: 'asia-northeast1' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
