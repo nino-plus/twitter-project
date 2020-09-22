@@ -20,14 +20,12 @@ import {
 } from '@angular/material/snack-bar';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MainShellComponent } from './main-shell/main-shell.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MainShellComponent
   ],
   imports: [
     BrowserModule,
