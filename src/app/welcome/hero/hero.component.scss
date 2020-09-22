@@ -4,6 +4,7 @@
 .hero {
   padding: 56px 0;
   text-align: center;
+  background: linear-gradient(135deg, $color-main 0%, $color-main 75%, $color-main-dark 75%, $color-main-dark 100%);
   &__inner {
     @include lg {
       display: flex;
