@@ -1,27 +1,5 @@
-<div class="welcome">
-  <div class="welcome__top">
-    <h1 class="title">Logo</h1>
-    <p>登録した目標を〇〇時までに達成しないと××ツイートされます</p>
-    <div class="welcome__buttons">
-      <ng-template #default>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="login()"
-          [disabled]="authService.loginProcessing"
-        >
-          {{ authService.loginProcessing ? 'ログイン中' : 'Twitterで始める' }}
-        </button>
-      </ng-template>
-      <ng-container *ngIf="user$ | async as user; else default">
-        <a routerLink="/mypage" mat-raised-button color="primary"
-          >目標を設定する</a
-        >
-      </ng-container>
-    </div>
-  </div>
-</div>
-
+<app-hero [productName]="productName" [limitTime]="limitTime"></app-hero>
+<!--
 <div class="container">
   <div class="how-to">
     <h2 class="title">Twi-Proの使い方</h2>
@@ -108,4 +86,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

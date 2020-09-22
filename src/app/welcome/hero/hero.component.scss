@@ -1,0 +1,112 @@
+@import 'variables';
+@import 'mixins';
+
+.hero {
+  padding: 56px 0;
+  text-align: center;
+  &__inner {
+    @include lg {
+      display: flex;
+    }
+  }
+  &__main {
+    @include lg {
+      width: 44%;
+      text-align: left;
+    }
+  }
+  &__usage {
+    margin: 40px auto 0;
+    @include lg {
+      margin: 0;
+      width: 56%;
+    }
+  }
+  &__catch {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    @include md {
+      font-size: 32px;
+    }
+  }
+  &__text {
+    margin: 24px 0 0;
+    line-height: 1.75;
+  }
+  &__actions {
+    margin-top: 24px;
+  }
+  &__btn {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 360px;
+    @include lg {
+      max-width: 240px;
+      margin: 0 auto 0 0;
+    }
+  }
+}
+
+.usage {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+    padding: 32px 12px;
+    border-radius: 8px;
+    background-color: $color-base-light;
+    width: calc( 50% - 8px );
+    @include md {
+      width: calc( 100%/3 - 32px/3);
+    }
+    &:nth-of-type(even) {
+      margin-left: 16px;
+    }
+    &:last-of-type {
+      margin-top: 16px;
+      width: 100%;
+      @include md {
+        margin-top: 0;
+        width: calc( 100%/3  - 32px/3);
+      }
+    }
+    &:not(:first-of-type) {
+      @include md  {
+        margin-left: 16px;
+      }
+    }
+  }
+  &__head {
+    color: $color-font-light;
+    font-size: 12px;
+    em {
+      color: $color-warn;
+    }
+  }
+  &__title {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  &__image {
+    width: 80%;
+    max-width: 140px;
+    margin: 24px auto 0;
+    @include md {
+      margin-top: 32px;
+      width: 80%;
+    }
+  }
+  &__emoji {
+    margin: 20px 0 0;
+    font-size: 40px;
+    line-height: 1;
+  }
+  &__comment {
+    margin: 12px 0 0;
+    font-size: 10px;
+    color: $color-warn;
+  }
+}
