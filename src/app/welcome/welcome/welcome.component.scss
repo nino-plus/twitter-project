@@ -1,0 +1,86 @@
+.welcome {
+  display: flex;
+  background-color: #EEFFFF;
+  margin-bottom: 40px;
+  &__top {
+    text-align: center;
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  &__buttons {
+    margin-top: 40px;
+    margin-bottom: 80px;
+  }
+}
+
+.sign-up {
+  margin-right: 16px;
+}
+
+
+.about {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.title {
+  margin-top: 0px;
+  margin-bottom: 80px;
+  font-size: 36px;
+}
+
+.text {
+  margin-bottom: 16px;
+}
+
+.about-card {
+  margin-left: 16px;
+  padding: 32px, 16px;
+  &__title {
+    font-size: 24px;
+    font-family: ""Hiragino Sans","Hiragino Kaku Gothic Pro",meiryo,"Helvetica Neue",roboto,droid sans,arial,sans-serif";
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.how-to {
+  margin-bottom: 40px;
+  text-align: center;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &__step {
+    margin-top: 0px;
+  }
+  &__step-title {
+    font-family: "Hiragino Sans","Hiragino Kaku Gothic Pro",meiryo,"Helvetica Neue",roboto,droid sans,arial,sans-serif;
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  &__step-list {
+    list-style: none;
+  }
+  &__step-lists {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .catchcopy {
+    padding: 120px, 0px;
+    &__wrapper {
+      margin: 0px, 65px;
+    }
+    &__description {
+      font-size: 24px;
+    }
+  }
+}
+
+
+// 普通のテキストは16px デカイのは32px 中くらいのは24px

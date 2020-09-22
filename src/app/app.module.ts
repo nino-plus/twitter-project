@@ -9,10 +9,12 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
 import { environment } from 'src/environments/environment';
+import { MainShellComponent } from './main-shell/main-shell.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainShellComponent
   ],
   imports: [
     BrowserModule,
