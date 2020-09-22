@@ -1,3 +1,5 @@
+@import "variables";
+
 :host {
   display: block;
   position: fixed;
@@ -7,6 +9,13 @@
 }
 
 .header {
+  background-color: $color-base;
+  &__logo {
+    a {
+      color: $color-font;
+      text-decoration: none;
+    }
+  }
   &__actions {
     margin-left: auto;
   }

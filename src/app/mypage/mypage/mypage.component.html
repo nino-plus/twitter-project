@@ -1,44 +1,46 @@
-<div class="container">
-  <h2>今日の目標</h2>
-  <p>
-    この目標を{{limitTime}}時までに完了できなかった場合は、<br>
-    自分の過去ツイートが自動リツイートされます😱
-  </p>
-  <ng-container *ngIf="authService.afUser$ | async as user">
-    <ng-container *ngIf="userTask else unCreate">
-      <p>{{ userTask.title }}</p>
-      <ng-container *ngIf="userTask.isComplate else unComplate">
-        <div>
-          <p>おめでとうございます！</p>
-          <p>自動リツイートは回避されました！</p>
-        </div>
+<h2 class="mypage__title">今日の目標</h2>
+<div class="mypage__contents">
+  <div class="container">
+    <p class="mypage__description">
+      この目標を{{limitTime}}時までに完了できなかった場合は、<br>
+      自分の過去ツイートが自動リツイートされます😱
+    </p>
+    <ng-container *ngIf="authService.afUser$ | async as user">
+      <ng-container *ngIf="userTask else unCreate">
+        <p>{{ userTask.title }}</p>
+        <ng-container *ngIf="userTask.isComplate else unComplate">
+          <div>
+            <p>おめでとうございます！</p>
+            <p>自動リツイートは回避されました！</p>
+          </div>
+        </ng-container>
+        <ng-template #unComplate>
+          <button mat-raised-button color="primary" (click)="complateTask()">完了しました！</button>
+        </ng-template>
       </ng-container>
-      <ng-template #unComplate>
-        <button mat-raised-button color="primary" (click)="complateTask()">完了しました！</button>
+      <ng-template #unCreate>
+        <form [formGroup]="form">
+          <mat-form-field>
+            <mat-label>今日の目標</mat-label>
+            <input
+              type="text"
+              matInput
+              autocomplete="off"
+              formControlName="title"
+              [maxlength]="taskTitleMaxLength"
+            />
+            <mat-hint align="end"
+              >{{ form.get('title').value.length }} / {{ taskTitleMaxLength }}</mat-hint
+            >
+            <mat-error *ngIf="form.get('title').hasError('maxlength')"
+              >最大{{ taskTitleMaxLength }}文字です。</mat-error
+            >
+          </mat-form-field>
+        </form>
+        <button mat-flat-button color="primary" [disabled]="form.invalid || form.pristine" (click)="creatTask(user.uid)">
+          目標を登録
+        </button>
       </ng-template>
     </ng-container>
-    <ng-template #unCreate>
-      <form [formGroup]="form">
-        <mat-form-field>
-          <mat-label>今日の目標</mat-label>
-          <input
-            type="text"
-            matInput
-            autocomplete="off"
-            formControlName="title"
-            [maxlength]="taskTitleMaxLength"
-          />
-          <mat-hint align="end"
-            >{{ form.get('title').value.length }} / {{ taskTitleMaxLength }}</mat-hint
-          >
-          <mat-error *ngIf="form.get('title').hasError('maxlength')"
-            >最大{{ taskTitleMaxLength }}文字です。</mat-error
-          >
-        </mat-form-field>
-      </form>
-      <button mat-flat-button color="primary" [disabled]="form.invalid || form.pristine" (click)="creatTask(user.uid)">
-        目標を登録
-      </button>
-    </ng-template>
-  </ng-container>
+  </div>
 </div>

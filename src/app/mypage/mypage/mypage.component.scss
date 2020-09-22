@@ -1,3 +1,25 @@
+@import "variables";
+
 :host {
   text-align: center;
+}
+
+.mypage {
+  &__title {
+    margin: 0;
+    padding: 10px 16px;
+    background-color: $color-font;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  &__contents {
+    background-color: $color-main;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  &__description {
+    margin: 0 0 40px;
+  }
 }
