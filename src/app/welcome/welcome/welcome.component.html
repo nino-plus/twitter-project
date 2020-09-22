@@ -1,28 +1,43 @@
-<div class="welcome">
-  <div class="welcome__top">
-    <h1 class="title">Logo</h1>
-    <p>登録した目標を〇〇時までに達成しないと××ツイートされます</p>
-    <div class="welcome__buttons">
-      <ng-template #default>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="login()"
-          [disabled]="authService.loginProcessing"
-        >
-          {{ authService.loginProcessing ? 'ログイン中' : 'Twitterで始める' }}
-        </button>
-      </ng-template>
-      <ng-container *ngIf="user$ | async as user; else default">
-        <a routerLink="/mypage" mat-raised-button color="primary"
-          >目標を設定する</a
-        >
-      </ng-container>
-    </div>
+<app-hero [productName]="productName" [limitTime]="limitTime"></app-hero>
+
+<div class="about">
+  <div class="container">
+    <h2 class="title">こんな時に…！</h2>
+    <p class="text">
+      Twi-ProはTwitterを利用し、当日の行動をフォロワーの方々に宣言する事で
+    </p>
+    <p class="text">
+      「必ずやり遂げよう」というあなたの気持ちを後押しするサービスです。
+    </p>
+    <!-- <div class="grid">
+      <mat-card class="about-card">
+        <p class="about-card__title">Lorem, ipsum dolor.</p>
+        <p class="text">Lorem, ipsum.</p>
+        <img
+          src="https://via.placeholder.com/252x158"
+          class="about-card__image"
+        />
+      </mat-card>
+      <mat-card class="about-card">
+        <p class="about-card__title">Lorem, ipsum dolor.</p>
+        <p class="text">Lorem, ipsum.</p>
+        <img
+          src="https://via.placeholder.com/252x158"
+          class="about-card__image"
+        />
+      </mat-card>
+      <mat-card class="about-card">
+        <p class="about-card__title">Lorem, ipsum dolor.</p>
+        <p class="text">Lorem, ipsum.</p>
+        <img
+          src="https://via.placeholder.com/252x158"
+          class="about-card__image"
+        />
+      </mat-card>
+    </div> -->
   </div>
-</div>
-  <app-about></app-about>
-  <!-- <div class="catchcopy">
+
+  <div class="catchcopy">
     <div class="catchcopy__wrapper">
       <h2 class="title">Twi-Proを始めよう</h2>
       <div class="catchcopy__description">

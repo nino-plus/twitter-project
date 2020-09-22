@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 @import "variables";
 @import "mixins";
 
@@ -13,6 +16,10 @@ body {
   padding-top: 56px;
 }
 
+em {
+  font-style: normal;
+}
+
 img {
   max-width: 100%;
 }
@@ -24,5 +31,31 @@ img {
   @include md {
     padding-left: 24px;
     padding-right: 24px;
+  }
+}
+
+.sp-only {
+  @include md {
+    display: none;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 32px;
+  border: none;
+  background-color: $color-font;
+  border-radius: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .4s;
+  &:hover {
+    background-color: $color-font-light;
+    text-decoration: none;
+  }
+  &.disabled {
+    color: rgba(0,0,0,.26);
+    background-color: rgba(0,0,0,.12);
   }
 }
