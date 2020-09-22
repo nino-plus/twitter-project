@@ -26,7 +26,7 @@ export class TaskService {
     const formatDate = {
       year: this.formatDate(today.getFullYear()),
       month: this.formatDate(today.getMonth() + 1),
-      date: this.formatDate(today.getDate())
+      date: this.formatDate(today.getDate()),
     };
     return formatDate.year + formatDate.month + formatDate.date;
   }
@@ -48,7 +48,7 @@ export class TaskService {
 
   complateTask(uid: string, createDate: string) {
     return this.db.doc(`users/${uid}/tasks/${createDate}`).update({
-      isComplate: true
+      isComplate: true,
     });
   }
 }
