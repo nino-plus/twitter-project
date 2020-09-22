@@ -7,7 +7,7 @@
         自分の過去ツイートが自動リツイートされます😱
       </p>
       <ng-container *ngIf="authService.afUser$ | async as user">
-        <ng-container *ngIf="userTask; else unCreate">
+        <ng-container *ngIf="userTask$ | async as userTask; else unCreate">
           <mat-card class="mypage__card">
             <dl class="mypage__data">
               <dt>今日の目標</dt>
@@ -15,21 +15,20 @@
             </dl>
             <ng-container *ngIf="userTask.isComplate; else unComplate">
               <div class="mypage__congratulations">
+                <p class="emoji">🥳</p>
                 <p>
                   おめでとうございます！<br />
                   自動リツイートは回避されました！
                 </p>
-                <p class="emoji">🥳</p>
               </div>
             </ng-container>
             <ng-template #unComplate>
               <div class="mypage__actions">
                 <button
-                  mat-raised-button
-                  color="primary"
-                  (click)="complateTask()"
+                  class="btn"
+                  (click)="complateTask(user.uid, formatToday)"
                 >
-                  完了報告
+                  完了報告する
                 </button>
               </div>
             </ng-template>
@@ -59,8 +58,8 @@
             </form>
             <div class="mypage__actions">
               <button
-                mat-flat-button
-                color="primary"
+                class="btn"
+                [class.disabled]="form.invalid || form.pristine"
                 [disabled]="form.invalid || form.pristine"
                 (click)="creatTask(user.uid)"
               >
