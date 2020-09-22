@@ -5,8 +5,6 @@ import { MypageRoutingModule } from './mypage-routing.module';
 import { MypageComponent } from './mypage/mypage.component';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -19,8 +17,6 @@ import { MatCardModule } from '@angular/material/card';
     MypageRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule,
-    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
