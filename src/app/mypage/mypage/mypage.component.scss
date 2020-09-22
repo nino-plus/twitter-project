@@ -8,7 +8,7 @@
 .mypage {
   &__title {
     margin: 0;
-    padding: 10px 16px;
+    padding: 16px;
     background-color: $color-font;
     color: #ffffff;
     font-size: 14px;
@@ -16,10 +16,16 @@
     line-height: 1;
   }
   &__contents {
-    background-color: $color-main;
+    background: linear-gradient(
+      135deg,
+      $color-main 0%,
+      $color-main 75%,
+      $color-main-dark 75%,
+      $color-main-dark 100%
+    );
     padding-top: 80px;
     padding-bottom: 80px;
-    min-height: calc(100vh - (56px + 34px + 56px));
+    min-height: calc(100vh - (56px + 46px + 56px));
   }
   &__description {
     margin: 0 0 40px;
