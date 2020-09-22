@@ -5,18 +5,40 @@
     自分の過去ツイートが自動リツイートされます😱
   </p>
   <ng-container *ngIf="authService.afUser$ | async as user">
-    <p>{{ userTask.title }}</p>
-    <ng-container *ngIf="userTask.isComplate else unComplate">
-      <div>
-        <p>おめでとうございます！</p>
-        <p>自動リツイートは回避されました！</p>
-      </div>
+    <ng-container *ngIf="userTask else unCreate">
+      <p>{{ userTask.title }}</p>
+      <ng-container *ngIf="userTask.isComplate else unComplate">
+        <div>
+          <p>おめでとうございます！</p>
+          <p>自動リツイートは回避されました！</p>
+        </div>
+      </ng-container>
+      <ng-template #unComplate>
+        <button mat-raised-button color="primary" (click)="complateTask()">完了しました！</button>
+      </ng-template>
     </ng-container>
-    <ng-template #unComplate>
-      <button mat-raised-button color="primary" (click)="complateTask()">完了しました！</button>
+    <ng-template #unCreate>
+      <form [formGroup]="form">
+        <mat-form-field>
+          <mat-label>今日の目標</mat-label>
+          <input
+            type="text"
+            matInput
+            autocomplete="off"
+            formControlName="title"
+            [maxlength]="taskTitleMaxLength"
+          />
+          <mat-hint align="end"
+            >{{ form.get('title').value.length }} / {{ taskTitleMaxLength }}</mat-hint
+          >
+          <mat-error *ngIf="form.get('title').hasError('maxlength')"
+            >最大{{ taskTitleMaxLength }}文字です。</mat-error
+          >
+        </mat-form-field>
+      </form>
+      <button mat-flat-button color="primary" [disabled]="form.invalid || form.pristine" (click)="creatTask(user.uid)">
+        目標を登録
+      </button>
     </ng-template>
-    <div>
-      <button mat-raised-button color="primary" (click)="openCreateTaskDialog(user.uid)">タスクを登録する</button>
-    </div>
   </ng-container>
 </div>

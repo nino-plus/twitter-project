@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { firestore } from 'firebase';
 import { take } from 'rxjs/operators';
 import { Task } from 'src/app/interfaces/task';
 import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
-import { CreateTaskDialogComponent } from '../create-task-dialog/create-task-dialog.component';
 
 @Component({
   selector: 'app-mypage',
@@ -15,17 +15,21 @@ import { CreateTaskDialogComponent } from '../create-task-dialog/create-task-dia
 export class MypageComponent implements OnInit {
   limitTime = 24;
   // userTasks$;
-  userTask: Task = {
-    id: 'test',
-    title: 'Noteを書く。',
-    isComplate: false,
-    createdAt: firestore.Timestamp.now()
-  };
+  userTask: Task;
+  taskTitleMaxLength = 20;
+
+  form = this.fb.group({
+    title: ['', [
+      Validators.required,
+      Validators.maxLength(this.taskTitleMaxLength)
+    ]]
+  });
 
   constructor(
     public authService: AuthService,
     private taskService: TaskService,
-    private dialog: MatDialog,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -40,18 +44,24 @@ export class MypageComponent implements OnInit {
     // this.userTasks$ = this.taskService.getTodayTask(uid);
   }
 
+  creatTask(uid: string) {
+    this.userTask = {
+      id: 'test',
+      title: this.form.value.title,
+      isComplate: false,
+      createdAt: firestore.Timestamp.now()
+    };
+    this.taskService.createTask(
+      uid,
+      this.form.value.title
+    ).then(() => {
+      this.snackBar.open('目標を登録しました！');
+    });
+  }
+
   complateTask() {
     this.userTask.isComplate = true;
     console.log(this.userTask);
-  }
-
-  openCreateTaskDialog(uid: string) {
-    this.dialog.open(CreateTaskDialogComponent, {
-      width: '560px',
-      autoFocus: false,
-      restoreFocus: false,
-      data: { uid }
-    });
   }
 
 }
