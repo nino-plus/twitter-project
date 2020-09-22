@@ -1,0 +1,35 @@
+.about-container {
+  padding: 32px, 16px;
+}
+
+.about {
+  text-align: center;
+  margin-bottom: 80px;
+  &__title {
+    margin-top: 0px;
+    margin-bottom: 80px;
+    font-size: 36px;
+  }
+  &__text {
+    margin-bottom: 16px;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.about-card {
+  margin-left: 16px;
+  background-color: #f9f9f9;
+  &__title {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: '' Hiragino Sans ',' Hiragino Kaku Gothic Pro ',meiryo,'
+      Helvetica Neue ',roboto,droid sans,arial,sans-serif';
+  }
+  &__text {
+    margin-bottom: 16px;
+  }
+}
+
