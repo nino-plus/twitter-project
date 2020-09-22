@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { firestore } from 'firebase';
+import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Task } from 'src/app/interfaces/task';
 import { AuthService } from 'src/app/services/auth.service';
@@ -14,8 +15,8 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class MypageComponent implements OnInit {
   limitTime = 24;
-  // userTasks$;
-  userTask: Task;
+  formatToday = this.taskService.formatToday();
+  userTask$;
   taskTitleMaxLength = 20;
 
   form = this.fb.group({
@@ -37,28 +38,25 @@ export class MypageComponent implements OnInit {
       .pipe(take(1))
       .toPromise()
       .then((user) => {
-        // this.userTasks$ = this.getTodayTask(user.uid);
+        this.userTask$ = this.getTodayTask(user.uid);
+        console.log(user.uid); // uidが表示 OK
+        console.log(this.formatToday); // yyyymmdd形式で表示 OK
+        console.log(this.getTodayTask(user.uid)); // undifindになる
       });
   }
 
   getTodayTask(uid: string) {
-    // this.userTasks$ = this.taskService.getTodayTask(uid);
+    this.userTask$ = this.taskService.getTodayTask(uid);
   }
 
   creatTask(uid: string) {
-    this.userTask = {
-      id: 'test',
-      title: this.form.value.title,
-      isComplate: false,
-      createdAt: firestore.Timestamp.now(),
-    };
     this.taskService.createTask(uid, this.form.value.title).then(() => {
       this.snackBar.open('目標を登録しました！');
     });
   }
 
-  complateTask() {
-    this.userTask.isComplate = true;
+  complateTask(uid: string, createDate: string) {
+    this.taskService.complateTask(uid, createDate);
     this.snackBar.open('お疲れ様でした 🎉');
   }
 }
