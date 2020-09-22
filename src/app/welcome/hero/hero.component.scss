@@ -18,6 +18,7 @@
   }
   &__main {
     @include lg {
+      padding: 12px 0;
       width: 44%;
       text-align: left;
     }
@@ -39,16 +40,11 @@
   }
   &__text {
     margin: 24px 0 0;
+    font-weight: 700;
     line-height: 1.75;
-    @include lg {
-      margin-top: 36px;
-    }
   }
   &__actions {
     margin-top: 24px;
-    @include lg {
-      margin-top: 36px;
-    }
   }
   &__btn {
     width: 100%;
