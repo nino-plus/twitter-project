@@ -6,19 +6,21 @@ import { User } from '../interfaces/user';
 import { Token } from '../interfaces/token';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
-  constructor(
-    private db: AngularFirestore
-  ) { }
+  constructor(private db: AngularFirestore) {}
 
   getUserData(uid: string): Observable<any> {
     return this.db.doc(`users/${uid}`).valueChanges();
   }
 
-  async createUser(uid: string, twitterProfile: any, accessToken, secret): Promise<void> {
+  async createUser(
+    uid: string,
+    twitterProfile: any,
+    accessToken,
+    secret
+  ): Promise<void> {
     const userData: User = {
       uid,
       userName: twitterProfile.name,

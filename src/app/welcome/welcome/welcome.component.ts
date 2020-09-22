@@ -11,9 +11,7 @@ export class WelcomeComponent implements OnInit {
   user$ = this.authService.afUser$.pipe(tap(() => (this.isLoading = false)));
   isLoading: boolean;
 
-  constructor(
-    public authService: AuthService
-  ) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}
 

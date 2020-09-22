@@ -4,10 +4,19 @@
     <p>登録した目標を〇〇時までに達成しないと××ツイートされます</p>
     <div class="welcome__buttons">
       <ng-template #default>
-        <button mat-raised-button color="primary" (click)="login()" [disabled]="authService.loginProcessing">{{authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'}}</button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="login()"
+          [disabled]="authService.loginProcessing"
+        >
+          {{ authService.loginProcessing ? 'ログイン中' : 'Twitterで始める' }}
+        </button>
       </ng-template>
       <ng-container *ngIf="user$ | async as user; else default">
-        <a routerLink="/mypage" mat-raised-button color="primary">目標を設定する</a>
+        <a routerLink="/mypage" mat-raised-button color="primary"
+          >目標を設定する</a
+        >
       </ng-container>
     </div>
   </div>

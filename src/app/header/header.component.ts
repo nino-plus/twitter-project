@@ -5,20 +5,17 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   user$ = this.authService.afUser$.pipe(tap(() => (this.isLoading = false)));
   isLoading: boolean;
 
-  constructor(
-    public authService: AuthService
-  ) {
+  constructor(public authService: AuthService) {
     this.isLoading = true;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   login() {
     this.authService.loginProcessing = true;
@@ -33,5 +30,4 @@ export class HeaderComponent implements OnInit {
       this.authService.loginProcessing = false;
     });
   }
-
 }

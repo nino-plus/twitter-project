@@ -10,7 +10,7 @@ import { TaskService } from 'src/app/services/task.service';
 @Component({
   selector: 'app-mypage',
   templateUrl: './mypage.component.html',
-  styleUrls: ['./mypage.component.scss']
+  styleUrls: ['./mypage.component.scss'],
 })
 export class MypageComponent implements OnInit {
   limitTime = 24;
@@ -19,10 +19,10 @@ export class MypageComponent implements OnInit {
   taskTitleMaxLength = 20;
 
   form = this.fb.group({
-    title: ['', [
-      Validators.required,
-      Validators.maxLength(this.taskTitleMaxLength)
-    ]]
+    title: [
+      '',
+      [Validators.required, Validators.maxLength(this.taskTitleMaxLength)],
+    ],
   });
 
   constructor(
@@ -30,14 +30,15 @@ export class MypageComponent implements OnInit {
     private taskService: TaskService,
     private fb: FormBuilder,
     private snackBar: MatSnackBar
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.authService.afUser$.pipe(take(1)).toPromise().then(user => {
-      // this.userTasks$ = this.getTodayTask(user.uid);
-    }
-    );
+    this.authService.afUser$
+      .pipe(take(1))
+      .toPromise()
+      .then((user) => {
+        // this.userTasks$ = this.getTodayTask(user.uid);
+      });
   }
 
   getTodayTask(uid: string) {
@@ -49,12 +50,9 @@ export class MypageComponent implements OnInit {
       id: 'test',
       title: this.form.value.title,
       isComplate: false,
-      createdAt: firestore.Timestamp.now()
+      createdAt: firestore.Timestamp.now(),
     };
-    this.taskService.createTask(
-      uid,
-      this.form.value.title
-    ).then(() => {
+    this.taskService.createTask(uid, this.form.value.title).then(() => {
       this.snackBar.open('目標を登録しました！');
     });
   }
@@ -63,5 +61,4 @@ export class MypageComponent implements OnInit {
     this.userTask.isComplate = true;
     this.snackBar.open('お疲れ様でした 🎉');
   }
-
 }

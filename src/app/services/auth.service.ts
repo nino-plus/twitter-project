@@ -8,7 +8,7 @@ import { UserService } from './user.service';
 import { take } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   afUser$: Observable<User> = this.afAuth.user;
@@ -21,7 +21,7 @@ export class AuthService {
     private snackBar: MatSnackBar,
     private userService: UserService
   ) {
-    this.afUser$.subscribe(user => {
+    this.afUser$.subscribe((user) => {
       this.user = user && user;
     });
   }
@@ -38,20 +38,19 @@ export class AuthService {
       .getUserData(user.uid)
       .pipe(take(1))
       .toPromise()
-      .then(
-        userDoc => {
-          console.log(userDoc);
-          if (!userDoc) {
-              this.userService
-                .createUser(user.uid, twitterProfile, accessToken, secret)
-                .then(() => {
-                  this.succeededLogin();
-                })
-                .catch((error) => {
-                  this.failedLogin(error);
-                });
-            }
-          });
+      .then((userDoc) => {
+        console.log(userDoc);
+        if (!userDoc) {
+          this.userService
+            .createUser(user.uid, twitterProfile, accessToken, secret)
+            .then(() => {
+              this.succeededLogin();
+            })
+            .catch((error) => {
+              this.failedLogin(error);
+            });
+        }
+      });
   }
 
   succeededLogin() {

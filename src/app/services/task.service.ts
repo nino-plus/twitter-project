@@ -4,14 +4,10 @@ import { firestore } from 'firebase';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
-
-
-  constructor(
-    private db: AngularFirestore,
-  ) { }
+  constructor(private db: AngularFirestore) {}
 
   getTodayTask(uid: string): Observable<any> {
     // TODO 今日のタスクを取得する
@@ -24,7 +20,7 @@ export class TaskService {
       id: taskId,
       title: taskTitle,
       isComplate: false,
-      createdAt: firestore.Timestamp.now()
+      createdAt: firestore.Timestamp.now(),
     });
   }
 }
