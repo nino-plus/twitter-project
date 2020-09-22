@@ -33,9 +33,15 @@
   &__text {
     margin: 24px 0 0;
     line-height: 1.75;
+    @include lg {
+      margin-top: 36px;
+    }
   }
   &__actions {
     margin-top: 24px;
+    @include lg {
+      margin-top: 36px;
+    }
   }
   &__btn {
     width: 100%;
