@@ -61,7 +61,7 @@ export class MypageComponent implements OnInit {
 
   complateTask() {
     this.userTask.isComplate = true;
-    console.log(this.userTask);
+    this.snackBar.open('お疲れ様でした 🎉');
   }
 
 }

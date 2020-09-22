@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 :host {
   text-align: center;
@@ -22,5 +23,55 @@
   }
   &__description {
     margin: 0 0 40px;
+    font-size: 14px;
+    @include md {
+      font-size: 16px;
+    }
+  }
+  &__card {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px 16px;
+    @include md {
+      padding: 32px 24px;
+    }
+  }
+  &__form-field {
+    width: 100%;
+  }
+  &__input {
+    width: 100%;
+  }
+  &__actions {
+    margin-top: 16px;
+  }
+  &__congratulations {
+    margin-top: 20px;
+    font-size: 14px;
+    @include md {
+      font-size: 16px;
+    }
+    .emoji {
+      font-size: 40px;
+      margin: 20px 0 0;
+    }
+  }
+  &__data {
+    dt {
+      display: inline-block;
+      margin: 0 auto;
+      padding: 8px 30px;
+      border-radius: 15px;
+      background-color: $color-font;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1;
+    }
+    dd {
+      margin: -15px 0 0;
+      padding: 32px 16px 24px;
+      border-radius: 8px;
+      background-color: $color-base;
+    }
   }
 }
