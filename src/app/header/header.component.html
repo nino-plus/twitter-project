@@ -6,12 +6,12 @@
     <div class="header__actions">
       <ng-template #default>
         <button
-          mat-raised-button
-          color="primary"
+          class="btn"
           (click)="login()"
+          [class.disabled]="authService.loginProcessing"
           [disabled]="authService.loginProcessing"
         >
-          {{ authService.loginProcessing ? 'ログイン中' : 'Twitterでログイン' }}
+          {{ authService.loginProcessing ? 'ログイン中' : 'Twitterで始める' }}
         </button>
       </ng-template>
       <ng-container *ngIf="user$ | async as user; else default">
