@@ -1,8 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { MainShellComponent } from './main-shell/main-shell.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    data: {
+      root: true,
+    },
+    loadChildren: () =>
+      import('./welcome/welcome.module').then((m) => m.WelcomeModule),
+  },
   {
     path: 'mypage',
     loadChildren: () =>
@@ -12,6 +21,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
