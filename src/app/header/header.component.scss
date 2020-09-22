@@ -1,15 +1,11 @@
 @import "variables";
 
-:host {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
 .header {
+  min-height: 56px;
   background-color: $color-base;
+  &__inner {
+    height: 56px;
+  }
   &__logo {
     a {
       color: $color-font;
