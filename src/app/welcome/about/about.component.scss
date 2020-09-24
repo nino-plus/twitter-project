@@ -4,11 +4,6 @@
 .about {
   text-align: center;
   padding: 56px 0;
-  /*   &__inner {
-    @include lg {
-      display: flex;
-    }
-  } */
   &__main {
     @include lg {
       text-align: center;
