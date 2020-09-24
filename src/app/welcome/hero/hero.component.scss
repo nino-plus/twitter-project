@@ -109,6 +109,9 @@
       margin-top: 24px;
       width: 80%;
     }
+    @include lg {
+      width: 84%;
+    }
     img {
       vertical-align:top;
       filter: drop-shadow(4px 4px 16px $color-base-dark);
@@ -118,13 +121,14 @@
     margin: 20px 0 0;
     font-size: 56px;
     line-height: 1;
-    @include lg {
+    @include md {
       font-size: 40px;
     }
   }
   &__comment {
     margin: 20px 0 0;
     font-size: 10px;
+    font-weight: 700;
     color: $color-warn;
   }
 }
