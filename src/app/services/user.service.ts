@@ -8,7 +8,7 @@ import { Token } from '../interfaces/token';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore) {}
 
   getUserData(uid: string): Observable<any> {
     return this.db.doc(`users/${uid}`).valueChanges();

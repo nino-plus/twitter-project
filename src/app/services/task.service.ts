@@ -9,7 +9,10 @@ import { Task } from '../interfaces/task';
   providedIn: 'root',
 })
 export class TaskService {
-  constructor(private db: AngularFirestore, private fns: AngularFireFunctions) { }
+  constructor(
+    private db: AngularFirestore,
+    private fns: AngularFireFunctions
+  ) {}
 
   formatDate(i: number): string {
     let num: string;
