@@ -27,6 +27,7 @@ export class UserService {
     };
     const tokenData: Token = {
       uid,
+      twitterUid: twitterProfile.id_str,
       access_token_key: accessToken,
       access_token_secret: secret,
     };
