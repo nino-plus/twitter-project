@@ -17,7 +17,7 @@ app.get('/', async (req: any, res: any) => {
       const uid = taskDocumentSnapshot.data()?.uid;
       await tweet(uid);
       const tweetsQuerySnapshot = (await db.collectionGroup(`tweets`)
-        .orderBy("likeCount", "asc")
+        .orderBy("likeCount", "asc").limit(30)
         .get());
       if (tweetsQuerySnapshot) {
         const tweetIds: any[] = [];
