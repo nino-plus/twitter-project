@@ -9,7 +9,12 @@ import { AboutComponent } from './about/about.component';
 import { CatchCopyComponent } from './catch-copy/catch-copy.component';
 
 @NgModule({
-  declarations: [WelcomeComponent, HeroComponent, AboutComponent, CatchCopyComponent],
+  declarations: [
+    WelcomeComponent,
+    HeroComponent,
+    AboutComponent,
+    CatchCopyComponent,
+  ],
   imports: [CommonModule, WelcomeRoutingModule, MatCardModule],
 })
 export class WelcomeModule {}

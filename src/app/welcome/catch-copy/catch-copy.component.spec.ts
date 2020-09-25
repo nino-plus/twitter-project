@@ -8,9 +8,8 @@ describe('CatchCopyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CatchCopyComponent ]
-    })
-    .compileComponents();
+      declarations: [CatchCopyComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
