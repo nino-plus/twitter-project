@@ -4,7 +4,7 @@
     <div class="container">
       <p class="mypage__description">
         この目標を{{ limitTime }}時までに完了できなかった場合は、<br />
-        自分の過去ツイートが自動リツイートされます😱
+        自分の過去ツイが自動リツイートされます！
       </p>
       <ng-container *ngIf="authService.afUser$ | async as user">
         <ng-container *ngIf="userTask$ | async as userTask; else unCreate">

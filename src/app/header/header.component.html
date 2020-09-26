@@ -23,6 +23,10 @@
           class="header__icon"
         ></button>
         <mat-menu #userMenu="matMenu" class="header__menu">
+          <a mat-menu-item routerLink="/mypage">
+            <mat-icon>calendar_today</mat-icon>
+            <span>今日の目標</span>
+          </a>
           <button mat-menu-item (click)="logout()">
             <mat-icon>exit_to_app</mat-icon>
             <span>ログアウト</span>

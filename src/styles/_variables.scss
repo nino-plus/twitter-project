@@ -14,3 +14,10 @@ $color-twitter: #1da1f2;
 // フォント設定
 $font-default: Roboto, "Helvetica Neue", "Hiragino Sans","Hiragino Kaku Gothic Pro",meiryo,"Helvetica Neue",roboto,droid sans,arial,sans-serif;
 $font-logo: 'M PLUS 1p', sans-serif;
+
+// 背景パターン用
+$bg-dot-base-color:  #FFF176;
+$bg-dot-color: #F57F17;
+$bg-dot-size: 1px;
+$bg-dot-space: 22px;
+$bg-size: $bg-dot-space $bg-dot-space;

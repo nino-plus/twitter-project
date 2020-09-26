@@ -23,6 +23,7 @@
       $color-main-dark 75%,
       $color-main-dark 100%
     );
+    @include bg-dot;
     padding-top: 80px;
     padding-bottom: 80px;
     min-height: calc(100vh - (56px + 46px + 56px));
@@ -30,6 +31,7 @@
   &__description {
     margin: 0 0 40px;
     font-size: 14px;
+    font-weight: 700;
     @include md {
       font-size: 16px;
     }
