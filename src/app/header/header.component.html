@@ -10,9 +10,11 @@
           (click)="login()"
           [class.disabled]="authService.loginProcessing"
           [disabled]="authService.loginProcessing"
-        ><span>{{
-          authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'
-        }}</span></button>
+        >
+          <span>{{
+            authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'
+          }}</span>
+        </button>
       </ng-template>
       <ng-container *ngIf="user$ | async as user; else default">
         <button

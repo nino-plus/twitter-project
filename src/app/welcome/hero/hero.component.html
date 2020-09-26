@@ -3,7 +3,7 @@
     <div class="hero__inner">
       <div class="hero__main">
         <p class="hero__catch">
-          目標を達成して<br>
+          目標を達成して<br />
           爆弾ツイートを阻止せよ！
         </p>
         <p class="hero__text">
@@ -17,12 +17,16 @@
               [disabled]="authService.loginProcessing"
               [class.disabled]="authService.loginProcessing"
               class="btn btn-login hero__btn"
-            ><span>{{
-                  authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'
-            }}</span></button>
+            >
+              <span>{{
+                authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'
+              }}</span>
+            </button>
           </ng-template>
           <ng-container *ngIf="user$ | async as user; else default">
-            <a routerLink="/mypage" class="btn hero__btn"><span>目標を設定する</span></a>
+            <a routerLink="/mypage" class="btn hero__btn"
+              ><span>目標を設定する</span></a
+            >
           </ng-container>
         </div>
       </div>
