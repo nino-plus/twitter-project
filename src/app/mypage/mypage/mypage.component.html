@@ -4,7 +4,7 @@
     <div class="container">
       <p class="mypage__description">
         この目標を{{ limitTime }}時までに完了できなかった場合は、<br />
-        自分の過去ツイが自動リツイートされます！
+        過去ツイがリツイートされます！
       </p>
       <ng-container *ngIf="authService.afUser$ | async as user">
         <ng-container *ngIf="userTask$ | async as userTask; else unCreate">
@@ -18,14 +18,14 @@
                 <p class="emoji">🥳</p>
                 <p>
                   おめでとうございます！<br />
-                  自動リツイートは回避されました！
+                  リツイートは回避されました！
                 </p>
               </div>
             </ng-container>
             <ng-template #unComplate>
               <div class="mypage__actions">
                 <button
-                  class="btn"
+                  class="btn btn-complete"
                   (click)="complateTask(user.uid, formatToday)"
                 ><span>完了報告する</span></button>
               </div>

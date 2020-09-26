@@ -16,13 +16,6 @@
     line-height: 1;
   }
   &__contents {
-    background: linear-gradient(
-      135deg,
-      $color-main 0%,
-      $color-main 75%,
-      $color-main-dark 75%,
-      $color-main-dark 100%
-    );
     @include bg-dot;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -33,7 +26,7 @@
     font-size: 14px;
     font-weight: 700;
     @include md {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
   &__card {

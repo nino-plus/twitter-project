@@ -81,6 +81,12 @@ img {
       background-color: $color-twitter;
     }
   }
+  &.btn-complete {
+    background-color: $color-main-dark;
+    &::before {
+      background-color: $color-main;
+    }
+  }
 }
 
 .font-logo {
