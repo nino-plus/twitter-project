@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-catch-copy',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catch-copy.component.scss'],
 })
 export class CatchCopyComponent implements OnInit {
+  @Input() productName: string;
+
   constructor() {}
 
   ngOnInit(): void {}
