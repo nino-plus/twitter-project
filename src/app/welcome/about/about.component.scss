@@ -42,6 +42,9 @@
     background-color: $color-base-light;
     border-radius: 8px;
     width: calc(50% - 8px);
+    @include sm {
+      width: 100%;
+    }
     @include md {
       width: calc(100% / 3 - 32px / 3);
     }
