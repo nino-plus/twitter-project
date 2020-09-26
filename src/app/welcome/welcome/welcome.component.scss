@@ -13,21 +13,6 @@
   margin-bottom: 16px;
 }
 
-.about-card {
-  margin-left: 16px;
-  padding: 32px, 16px;
-  &__title {
-    font-size: 24px;
-    font-family: '' Hiragino Sans ',' Hiragino Kaku Gothic Pro ',meiryo,'
-      Helvetica Neue ',roboto,droid sans,arial,sans-serif';
-  }
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
 .how-to {
   margin-bottom: 40px;
   text-align: center;
@@ -62,5 +47,3 @@
     }
   }
 }
-
-// 普通のテキストは16px デカイのは32px 中くらいのは24px

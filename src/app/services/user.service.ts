@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Token } from '../interfaces/token';
@@ -18,8 +17,8 @@ export class UserService {
   async createUser(
     uid: string,
     twitterProfile: any,
-    accessToken,
-    secret
+    accessToken: string,
+    secret: string
   ): Promise<void> {
     const userData: User = {
       uid,
@@ -28,8 +27,9 @@ export class UserService {
     };
     const tokenData: Token = {
       uid,
-      access_tolen_key: accessToken,
-      access_tolen_secret: secret,
+      twitterUid: twitterProfile.id_str,
+      access_token_key: accessToken,
+      access_token_secret: secret,
     };
     await this.db.doc(`users/${uid}`).set(userData);
     await this.db.doc(`private/${uid}`).set(tokenData);

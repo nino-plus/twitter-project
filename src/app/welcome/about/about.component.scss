@@ -1,0 +1,93 @@
+@import 'variables';
+@import 'mixins';
+
+.about {
+  text-align: center;
+  padding: 56px 0;
+  &__main {
+    @include lg {
+      text-align: center;
+      padding: 12px;
+    }
+  }
+  &__timing {
+    margin: 40px auto 0;
+  }
+  &__catch {
+    margin: 0px;
+    font-size: 24px;
+    font-weight: 700;
+    @include md {
+      font-size: 32px;
+    }
+  }
+  &__text {
+    margin: 12px 0 0;
+    line-height: 1.75;
+  }
+}
+
+.timing {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  @include sm {
+    flex-direction: column;
+    align-items: center;
+  }
+  &__item {
+    padding: 32px 12px;
+    background-color: $color-base-light;
+    border-radius: 8px;
+    width: calc(50% - 8px);
+    @include sm {
+      width: 100%;
+    }
+    @include md {
+      width: calc(100% / 3 - 32px / 3);
+    }
+    &:nth-of-type(even) {
+      @include sm {
+        margin-top: 16px;
+      }
+    }
+    &:last-of-type {
+      margin-top: 16px;
+      @include md {
+        margin-top: 0;
+        width: calc(100% / 3 - 32px / 3);
+      }
+      @include sm {
+        margin-top: 16px;
+      }
+    }
+    &:not(:first-of-type) {
+      @include md {
+        margin-left: 16px;
+      }
+      @include sm {
+        margin-top: 16px;
+      }
+    }
+  }
+  &__title {
+    margin-top: 0px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  &__text {
+    margin-bottom: 16px;
+    color: $color-font-light;
+  }
+  &__image {
+    width: 80%;
+    max-width: 140px;
+    margin: 24px auto 0;
+    @include md {
+      margin-top: 32px;
+      width: 80%;
+    }
+  }
+}
