@@ -16,15 +16,13 @@
               (click)="login()"
               [disabled]="authService.loginProcessing"
               [class.disabled]="authService.loginProcessing"
-              class="btn hero__btn"
-            >
-              {{
-                authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'
-              }}
-            </button>
+              class="btn btn-login hero__btn"
+            ><span>{{
+                  authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'
+            }}</span></button>
           </ng-template>
           <ng-container *ngIf="user$ | async as user; else default">
-            <a routerLink="/mypage" class="btn hero__btn">目標を設定する</a>
+            <a routerLink="/mypage" class="btn hero__btn"><span>目標を設定する</span></a>
           </ng-container>
         </div>
       </div>

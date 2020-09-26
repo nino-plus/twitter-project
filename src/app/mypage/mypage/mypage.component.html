@@ -27,9 +27,7 @@
                 <button
                   class="btn"
                   (click)="complateTask(user.uid, formatToday)"
-                >
-                  完了報告する
-                </button>
+                ><span>完了報告する</span></button>
               </div>
             </ng-template>
           </mat-card>
@@ -62,9 +60,7 @@
                 [class.disabled]="form.invalid || form.pristine"
                 [disabled]="form.invalid || form.pristine"
                 (click)="creatTask(user.uid)"
-              >
-                目標を登録
-              </button>
+              ><span>目標を登録</span></button>
             </div>
           </mat-card>
         </ng-template>
