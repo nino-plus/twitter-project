@@ -84,7 +84,7 @@ async function getTweetAndSave(twitterClient: Twitter, twitterUid: string, uid: 
         });
       });
       await batch.commit();
-      if (allTweetCount < 1000) {
+      if (tweets.length > 0) {
         await getTweetAndSave(twitterClient, twitterUid, uid, allTweetCount, lastTweetId);
       }
       return;

@@ -12,7 +12,7 @@ export class TaskService {
   constructor(
     private db: AngularFirestore,
     private fns: AngularFireFunctions
-  ) {}
+  ) { }
 
   formatDate(i: number): string {
     let num: string;
@@ -52,7 +52,7 @@ export class TaskService {
 
   complateTask(uid: string, createDate: string): Promise<void> {
     return this.db.doc(`users/${uid}/tasks/${createDate}`).update({
-      isComplate: true,
+      isComplete: true,
     });
   }
 }
