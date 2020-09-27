@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent implements OnInit {
-  productName = 'Twitter Project';
+  productName = 'ばくツイ！';
   limitTime = 24;
 
   constructor() {}
