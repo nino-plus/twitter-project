@@ -2,9 +2,9 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 admin.initializeApp(functions.config().firebase);
 export {
+  checkTaskCompleteScheduler,
   checkTaskComplete,
-  checkTaskCompleteTest
-} from './twitter.function';
+} from './check.function';
 export {
   saveTweetData,
-} from './task.function';
+} from './user.function';
