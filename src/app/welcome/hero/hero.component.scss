@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .hero {
-  padding: 56px 0;
+  padding: 60px 0;
   text-align: center;
   background: linear-gradient(
     135deg,
@@ -64,10 +64,11 @@
   display: flex;
   flex-wrap: wrap;
   &__item {
-    padding: 32px 12px;
+    padding: 32px 12px 0;
     border-radius: 8px;
-    background-color: $color-base-light;
+    background-color: #ffffff;
     width: calc(50% - 8px);
+    overflow: hidden;
     @include md {
       width: calc(100% / 3 - 32px / 3);
     }
@@ -75,6 +76,7 @@
       margin-left: 16px;
     }
     &:last-of-type {
+      padding: 32px 12px;
       margin-top: 16px;
       width: 100%;
       @include md {
@@ -100,22 +102,33 @@
     font-weight: 700;
   }
   &__image {
-    width: 80%;
-    max-width: 140px;
-    margin: 24px auto 0;
+    width: 90%;
+    max-width: 160px;
+    margin: 16px auto 0;
     @include md {
-      margin-top: 32px;
+      margin-top: 24px;
       width: 80%;
+    }
+    @include lg {
+      width: 84%;
+    }
+    img {
+      vertical-align: top;
+      filter: drop-shadow(4px 4px 16px $color-base-dark);
     }
   }
   &__emoji {
     margin: 20px 0 0;
-    font-size: 40px;
+    font-size: 56px;
     line-height: 1;
+    @include md {
+      font-size: 40px;
+    }
   }
   &__comment {
-    margin: 12px 0 0;
+    margin: 20px 0 0;
     font-size: 10px;
+    font-weight: 700;
     color: $color-warn;
   }
 }

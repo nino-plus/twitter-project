@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap');
 @import "variables";
 @import "mixins";
 
@@ -12,7 +10,7 @@ html, body { height: 100%; }
 body {
   margin: 0;
   color: $color-font;
-  font-family: Roboto, "Helvetica Neue", "Hiragino Sans","Hiragino Kaku Gothic Pro",meiryo,"Helvetica Neue",roboto,droid sans,arial,sans-serif;
+  font-family: $font-default;
   padding-top: 56px;
 }
 
@@ -41,21 +39,57 @@ img {
 }
 
 .btn {
+  position: relative;
   display: inline-block;
   padding: 8px 32px;
   border: none;
-  background-color: $color-font;
   border-radius: 20px;
   color: #ffffff;
   text-align: center;
   text-decoration: none;
+  background-color: $color-font;
   transition: background-color .4s;
+  overflow: hidden;
+  cursor: pointer;
+  span {
+    position: relative;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background-color: $color-main-dark;
+    transition: width ease-out .4s;
+  }
   &:hover {
-    background-color: $color-font-light;
     text-decoration: none;
+    &::before {
+      width: 100%;
+    }
   }
   &.disabled {
+    pointer-events: none;
     color: rgba(0,0,0,.26);
     background-color: rgba(0,0,0,.12);
   }
+  &.btn-login {
+    &::before {
+      background-color: $color-twitter;
+    }
+  }
+  &.btn-complete {
+    background-color: $color-main-dark;
+    &::before {
+      background-color: $color-main;
+    }
+  }
+}
+
+.font-logo {
+  font-family: $font-logo !important;
+  font-weight: 700 !important;
 }

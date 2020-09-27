@@ -2,11 +2,13 @@
   <div class="container">
     <div class="hero__inner">
       <div class="hero__main">
-        <p class="hero__catch">今日の目標を達成しよう！</p>
+        <p class="hero__catch">
+          目標を達成して<br />
+          爆弾ツイートを阻止せよ！
+        </p>
         <p class="hero__text">
           {{ limitTime }}時の時点で完了報告がないと、<br />
           過去のツイートがリツイートされます！<br />
-          黒歴史ツイートが晒される前に完了しましょう！
         </p>
         <div class="hero__actions">
           <ng-template #default>
@@ -14,15 +16,17 @@
               (click)="login()"
               [disabled]="authService.loginProcessing"
               [class.disabled]="authService.loginProcessing"
-              class="btn hero__btn"
+              class="btn btn-login hero__btn"
             >
-              {{
+              <span>{{
                 authService.loginProcessing ? 'ログイン中' : 'Twitterで始める'
-              }}
+              }}</span>
             </button>
           </ng-template>
           <ng-container *ngIf="user$ | async as user; else default">
-            <a routerLink="/mypage" class="btn hero__btn">目標を設定する</a>
+            <a routerLink="/mypage" class="btn hero__btn"
+              ><span>目標を設定する</span></a
+            >
           </ng-container>
         </div>
       </div>
@@ -32,14 +36,14 @@
             <div class="usage__head">STEP 01</div>
             <p class="usage__title">今日の目標を<br />登録する。</p>
             <div class="usage__image">
-              <img src="/assets/images/step01.svg" alt="" />
+              <img src="/assets/images/step01.png" alt="" />
             </div>
           </li>
           <li class="usage__item">
             <div class="usage__head">STEP 02</div>
             <p class="usage__title">目標を達成したら<br />完了報告する。</p>
             <div class="usage__image">
-              <img src="/assets/images/step02.svg" alt="" />
+              <img src="/assets/images/step02.png" alt="" />
             </div>
           </li>
           <li class="usage__item">
@@ -47,7 +51,7 @@
             <p class="usage__title">
               過去のツイートが<br />リツイートされます。
             </p>
-            <p class="usage__emoji">😨</p>
+            <p class="usage__emoji">💣</p>
             <p class="usage__comment">
               あの時のポエムツイートが<br />リツイートされてしまう！？
             </p>
