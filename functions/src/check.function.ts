@@ -73,14 +73,15 @@ function formatDate(i: number): string {
 }
 
 function formatYesterday(): string {
-  const jstOffset = 9 * 60;
-  const today = new Date();
-  const offset = today.getTimezoneOffset() + jstOffset;
-  today.setTime(today.getTime() + offset * 60 * 1000);
+  const jstOffset = 9 * 60 * 60 * 1000;
+  const yesterday = new Date();
+  const offset = yesterday.getTimezoneOffset() + jstOffset;
+  const day = 24 * 60 * 60 * 1000;
+  yesterday.setTime(yesterday.getTime() + offset - day);
   const formatDateData = {
-    year: formatDate(today.getFullYear()),
-    month: formatDate(today.getMonth() + 1),
-    date: formatDate(today.getDate() - 1),
+    year: formatDate(yesterday.getFullYear()),
+    month: formatDate(yesterday.getMonth() + 1),
+    date: formatDate(yesterday.getDate()),
   };
   return formatDateData.year + formatDateData.month + formatDateData.date;
 }
